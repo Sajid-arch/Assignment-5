@@ -2,6 +2,7 @@
 // import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
 
 import './App.css'
+import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
@@ -21,6 +22,8 @@ function App() {
       <Sidebar/>
 
       <Hero/>
+
+      <Footer/>
 
 
 
