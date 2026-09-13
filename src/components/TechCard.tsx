@@ -1,12 +1,38 @@
 import { FaStar } from "react-icons/fa";
-import {useState } from "react";
+import {useState, type Dispatch, type SetStateAction } from "react";
 import type Itech from "../TechType";
+import { Bounce, toast } from "react-toastify";
+
+interface ITechCard{
+    technology: Itech;
+    index: number;
+    selectedTech: Itech[];
+    setSelectedTech: Dispatch<SetStateAction<Itech[]>>
+}
 
 
-const TechCard = ({technology}:{technology:Itech}) => {
+const TechCard = ({ technology, index, selectedTech, setSelectedTech }: ITechCard) => {
     const [isAdded, setIsAdded] = useState(false);
+
+    const handleAdd = () =>{
+        setIsAdded(true);
+        toast.success(`${technology.name} is added to stack.`, {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+});
+
+setSelectedTech([...selectedTech , technology]) 
+
+    }
     return (
-        <div className="p-5 border-2 font-jakarta border-[#F1F5F9] rounded-2xl space-y-4 transition-all ease-in-out duration-500 hover:shadow-2xl hover:-translate-2">
+        <div className="p-5 border-2 font-jakarta border-[#F1F5F9] rounded-2xl space-y-4 transition-all ease-in-out duration-500 hover:shadow-2xl hover:-translate-1">
         
                                 <div className="flex flex-row justify-between items-center">
                                     <img className="w-8 h-8" src={technology.logo} alt={technology.name} />
@@ -21,7 +47,7 @@ const TechCard = ({technology}:{technology:Itech}) => {
                                     <span className="font-medium text-[11px] text-[#64748B]">{technology.difficulty}</span>
                                     <div className="flex items-center justify-between"><span className="text-[#FBBF24] text-[12px]"><FaStar /></span><span className="text-[#334155] font-semibold text-[11px]">{technology.rating}</span></div>
                                 </div>
-                                <button onClick={()=>setIsAdded(true)} disabled={isAdded} className={`${isAdded ?' text-black':'bg-[#0A0F1D] text-white'} border-2 border-black transition-all ease-in-out duration-500 rounded-lg w-full text-xs font-medium py-3`}>{isAdded ? "Added" : "Add to Stack"}</button>
+                                <button onClick={()=>handleAdd()} key={index} disabled={isAdded} className={`${isAdded ?' text-black':'bg-[#0A0F1D] text-white'} border-2 border-black transition-all ease-in-out duration-500 rounded-lg w-full text-xs font-medium py-3`}>{isAdded ? "Added" : "Add to Stack"}</button>
                             </div>
     );
 };
