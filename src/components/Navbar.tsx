@@ -4,7 +4,7 @@ import logo from '../assets/logo-text.png'
 
 const Navbar = () => {
     return (
-        <nav className='w-full py-4 px-6 md:px-32 bg-transparent backdrop-blur-xl fixed z-30 top-0 left-0 min-h-10'>
+        <nav className='w-full py-4 px-6 md:px-32 bg-transparent font-jakarta backdrop-blur-xl fixed z-30 top-0 left-0 min-h-10 border-b-2 border-gray-100'>
                   <div className='container mx-auto flex flex-row items-center justify-between'>
                     <label htmlFor='sidebar-toggle' className='flex md:hidden text-[#7B7171]'><RxHamburgerMenu /></label>
                     <div className='max-w-1/4 md:max-w-full'><img src={logo} alt="Logo" className='object-cover' /></div>
