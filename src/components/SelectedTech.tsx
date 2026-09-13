@@ -10,6 +10,13 @@ interface ISelectedTech {
 
 const SelectedTech = ({selectedTech , setSelectedTech}:ISelectedTech) => {
     console.log(selectedTech, 'From Stack')
+        const handleRemoveAll = () => {setSelectedTech([])};
+        const handleRemove = (technology:Itech) => {
+
+            const restSelected = selectedTech.filter(selectedTech => selectedTech.name !== technology.name, "");
+            setSelectedTech(restSelected);
+        }
+    
     return (
         <div className="p-5 border-2 font-jakarta border-[#F1F5F9] rounded-2xl space-y-3 self-start h-fit transition-all ease-in-out duration-500">
                                         <h4 className="font-bold text-[16px] text-[#0F172A]">Your Stack</h4>
@@ -26,11 +33,12 @@ const SelectedTech = ({selectedTech , setSelectedTech}:ISelectedTech) => {
                                                                 <p className="text-[6px] text-[#475569]">{technology.category}</p>
                                                             </div>
                                                         </div>
-                                                <span><RxCross2 /></span>
+                                                <span onClick={() => handleRemove(technology)}><RxCross2 /></span>
                                                 
                                             </div>
                                                     })
                                                 }
+                                                <button onClick={()=> handleRemoveAll()} className={`${selectedTech.length > 0 ? "block" : "hidden"} border-2 border-red-200 rounded-lg text-red-500 w-full py-1 mt-2`}>Remove All</button>
                                         </div>
                                     </div>
     );

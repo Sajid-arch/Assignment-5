@@ -10,6 +10,10 @@ interface TechProps{
 const Tech = ({techPromise}:TechProps) => {
 
     const [selectedTech, setSelectedTech] = useState<Itech[]>([]);
+    // const handleRemove = (name:string) => {
+    //     setSelectedTech((previous:Itech[]) => 
+    // }
+    // const handleRemoveAll = () => {setSelectedTech([])};
 
 
     const techs = use(techPromise);
