@@ -1,15 +1,22 @@
-
-// import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
-
 import './App.css'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
-// import logo from './assets/logo-text.png'
+import Tech from './Tech'
+import { Suspense } from 'react'
+import type Itech from './TechType'
+// import TechSection from './components/Tech-section'
+
+  const techData = async():Promise<Itech[]> =>{
+    const res = await fetch('/data.json');
+    const data = await res.json();
+    return data;
+  };
+
 
 function App() {
-
+  const techPromise = techData();
 
   return (
     <>
@@ -22,6 +29,12 @@ function App() {
       <Sidebar/>
 
       <Hero/>
+
+      {/* <TechSection/> */}
+              
+        <Suspense fallback ={<h2>Loading ...</h2>}>
+          <Tech techPromise = {techPromise}/>
+        </Suspense>
 
       <Footer/>
 
