@@ -5,3 +5,32 @@
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
   --font-inter: "Inter", sans-serif;
 }
+.hero-heading-gradient{
+  @apply  bg-clip-text 
+          text-transparent 
+          bg-linear-to-r 
+          from-[#FF5722] 
+          from-0% 
+          via-[#D81B7E] 
+          via-50% 
+          to-[#7C3AED] 
+          to-100%
+}
+
+.hero-btn-gradient{
+  @apply bg-linear-to-r 
+          from-[#F97316]
+          from-0%
+          to-[#EC4899]
+          to-100%
+}
+
+.tech-heading-gradient{
+  @apply    text-transparent
+            bg-clip-text
+            bg-linear-to-r
+            from-[#EC4899]
+            from-0%
+            to-[#8B5CF6]
+            to-100%
+}

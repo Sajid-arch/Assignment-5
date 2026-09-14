@@ -14,6 +14,20 @@ const TechCard = ({technology, selectedTech, setSelectedTech }: ITechCard) => {
     const isAdded = selectedTech.some(selectedOne => selectedOne.name === technology.name)
 
     const handleAdd = () =>{
+        if(isAdded){
+            toast.warn(`${technology.name} is already in your stack.`, {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+});
+    return;            
+        }
         setSelectedTech([...selectedTech , technology])
 
     toast.success(`${technology.name} is added to stack.`, {
@@ -47,7 +61,7 @@ const TechCard = ({technology, selectedTech, setSelectedTech }: ITechCard) => {
                                     <span className="font-medium text-[11px] md:text-[8px] lg:text-[11px] text-[#64748B]">{technology.difficulty}</span>
                                     <div className="flex items-center justify-between"><span className="text-[#FBBF24]  text-[12px] md:text-[9px] lg:text-[12px]"><FaStar /></span><span className="text-[#334155] font-semibold text-[11px] md:text-[8px] lg:text-[11px]">{technology.rating}</span></div>
                                 </div>
-                                <button onClick={()=>handleAdd()} disabled={isAdded} className={`${isAdded?' text-black':'bg-[#0A0F1D] text-white'} cursor-pointer border-2 border-black transition-all ease-in-out duration-500 rounded-lg w-full text-xs font-medium py-3 md:py-1.5 lg:py-3`}>{isAdded === true ? "Added" : "Add to Stack"}</button>
+                                <button onClick={()=>handleAdd()} className={`${isAdded?' text-black':'bg-[#0A0F1D] text-white'} cursor-pointer border-2 border-black transition-all ease-in-out duration-500 rounded-lg w-full text-xs font-medium py-3 md:py-1.5 lg:py-3`}>{isAdded === true ? "✓ Added to Stack" : "Add to Stack"}</button>
                             </div>
     );
 };
