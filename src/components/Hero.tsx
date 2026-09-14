@@ -10,8 +10,8 @@ const Hero = () => {
                         compare them side by side, and put together the stack that fits your
                         next project.</p>
                     <div className='flex flex-row items-center justify-center flew-row gap-2 md:gap-4'>
-                        <button className='min-w-40 h-10 font-semibold text-xs lg:text-sm text-white px-4 pt-2 pb-3 rounded-lg bg-linear-to-r from-[#F97316] from-0% to-[#EC4899] to-100%'>Explore Technologies</button>
-                        <button className='border-2 min-w-40 h-10 px-4 pt-2 pb-3 rounded-lg font-normal text-[#374151] text-xs lg:text-sm border-[#E5E7EB]'>Learn More</button>
+                        <button className='min-w-40 h-10 font-semibold text-xs lg:text-sm text-white px-4 py-2 rounded-lg bg-linear-to-r from-[#F97316] from-0% to-[#EC4899] to-100%'>Explore Technologies</button>
+                        <button className='border-2 min-w-40 h-10 px-4 py-2 rounded-lg font-normal text-[#374151] text-xs lg:text-sm border-[#E5E7EB]'>Learn More</button>
                     </div>
                 </div>
                 <div className='flex justify-center items-center'>
