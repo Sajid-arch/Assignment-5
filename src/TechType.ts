@@ -1,4 +1,5 @@
 export default interface Itech {
+    id: number;
     name: string;
     logo: string;
     badge: string;
